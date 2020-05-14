@@ -42,7 +42,7 @@ def readkey(getchar_fn=None):
 # End of single character reading
 #======================================================================
 
-pp = PiconPlus(0x25)
+pp = PiconPlus(0x24)
 speed = 60
 
 print ("Tests the servos by using the Up/Down arrow keys to control")

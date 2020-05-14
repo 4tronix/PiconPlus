@@ -167,6 +167,7 @@ void setup()
   for (int i = 0; i < NUMOUTPUTS; i++)
   {
     pinMode (outputPins[i], OUTPUT);
+    digitalWrite(outputPins[i], 0);
   }
 
   FastLED.addLeds<WS2812B, LEDPIN, GRB>(leds, NUMLEDS);
@@ -201,7 +202,7 @@ int getI2c()
     i2cAddress = 0x27;
   else if (iset < 628)
     i2cAddress = 0x26;
-  else if (iset > 885)
+  else if (iset < 885)
     i2cAddress = 0x25;
   else
     i2cAddress = 0x24;
@@ -249,10 +250,11 @@ void loop()
     inputValues[NUMINPUTS+1] = voltageRead(I2CSET, 5000);
     inputValues[NUMINPUTS] = voltageRead(PSUPIN, 28000);
     if(inputValues[NUMINPUTS] > 7200)
-       newPSU = 7200;
+      newPSU = 7200;
     else if (inputValues[NUMINPUTS] > 6600)
-       newPSU = 6600;
-    //Serial.println("PSU: " + String(inputValues[NUMINPUTS]) + "  Q: " + String(newPSU));
+      newPSU = 6600;
+    //if (DEBUG)
+    //  Serial.println("PSU: " + String(inputValues[NUMINPUTS]) + "  Q: " + String(newPSU));
     if (newPSU != lastPSU)
     {
       lastPSU = newPSU;

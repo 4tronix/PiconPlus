@@ -7,7 +7,7 @@ from __future__ import print_function
 from piconplus import PiconPlus
 from time import sleep
 
-pp = PiconPlus(0x25)
+pp = PiconPlus(0x24)
 
 rev = pp.getRevision()
 print ('Board:', rev[1], "  Revision:", rev[0])

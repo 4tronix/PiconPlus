@@ -6,7 +6,7 @@
 from __future__ import print_function
 from piconplus import PiconPlus
 
-pp = PiconPlus(0x25)
+pp = PiconPlus(0x24)
 vsn = pp.getRevision()
 if (vsn[1] == 4):
     print ("Board Type:", "Picon Plus")

@@ -48,7 +48,7 @@ print ("Speed changes take effect when the next arrow key is pressed")
 print ("Press Ctrl-C to end")
 print
 
-pp=PiconPlus(0x25)
+pp=PiconPlus(0x24)
 
 # main loop
 try:
